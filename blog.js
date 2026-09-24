@@ -25,6 +25,34 @@
 
 const BLOG_POSTS = [
   {
+    slug: "vibe-coding-to-production-ai-on-aws",
+    author: "Umesh Nayak",
+    role: "Full-Stack Developer & IT Consultant",
+    avatar: "img/UMESH.JPEG",
+    date: "2026-09-24",
+    dateLabel: "24 Sep 2026",
+    hook: "From Vibe Coding to Production AI on AWS 🚀",
+    body: [
+      "Had a great experience attending the Auckland AWS Tools & Programming Meetup this September, with an insightful double-header featuring <strong><a href=\"https://www.linkedin.com/in/dineshsharma2511/\" target=\"_blank\" rel=\"noopener noreferrer\">Dinesh Sharma</a></strong> and <strong><a href=\"https://www.linkedin.com/in/dineshliyanage0/\" target=\"_blank\" rel=\"noopener noreferrer\">Dinesh Liyanage</a></strong>.",
+      "🔹 <strong><a href=\"https://www.linkedin.com/in/dineshsharma2511/\" target=\"_blank\" rel=\"noopener noreferrer\">Dinesh Sharma</a></strong> shared his journey in \"From Zero to Qazo: Building a Product with Kiro, AI &amp; AWS.\"",
+      "It was fascinating to hear how Dinesh took an idea, experimented with AI and Kiro, built a real product, and eventually deployed it on AWS. The session also covered the lessons learned from vibe coding, including what worked, what didn't, and the importance of going through the complete journey from idea &rarr; build &rarr; break &rarr; learn &rarr; deploy.",
+      "🔹 <strong><a href=\"https://www.linkedin.com/in/dineshliyanage0/\" target=\"_blank\" rel=\"noopener noreferrer\">Dinesh Liyanage</a></strong> followed with \"After the Demo: From Vibe Coding to AI Engineering.\"",
+      "His session explored what happens when you move beyond a working demo and start building for real customers. He covered important production engineering practices such as:<br><br>• Evals and testing<br>• Tracing and observability<br>• Cost optimisation and model routing<br>• Context engineering<br>• Building reliable AI systems at scale",
+      "One of my biggest takeaways from the meetup was the difference between building something that works and building something that can reliably work in production.",
+      "A great evening of learning, technical discussions, and connecting with the Auckland tech community. Thanks to <strong><a href=\"https://www.linkedin.com/in/dineshsharma2511/\" target=\"_blank\" rel=\"noopener noreferrer\">Dinesh Sharma</a></strong> and <strong><a href=\"https://www.linkedin.com/in/dineshliyanage0/\" target=\"_blank\" rel=\"noopener noreferrer\">Dinesh Liyanage</a></strong> for sharing their experiences and insights!",
+    ],
+    image: null,
+    gallery: [
+      { src: "img/blog/blog7/IMG_7928.JPG.jpeg", alt: "Auckland AWS Tools and Programming Meetup" },
+      { src: "img/blog/blog7/IMG_7930.JPG.jpeg", alt: "AWS meetup presentation" },
+      { src: "img/blog/blog7/IMG_7931.PNG", alt: "AWS meetup event" },
+      { src: "img/blog/blog7/IMG_7933.JPG.jpeg", alt: "AWS meetup attendees" },
+      { src: "img/blog/blog7/IMG_7940.JPG.jpeg", alt: "Auckland tech community meetup" },
+      { src: "img/blog/blog7/WhatsApp Image 2026-09-24 at 10.12.00 PM.jpeg", alt: "Auckland AWS meetup" },
+    ],
+    related: null,
+  },
+  {
     slug: "demystifying-git",
     author: "Umesh Nayak",
     role: "Full-Stack Developer & IT Consultant",
