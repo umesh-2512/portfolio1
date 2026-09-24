@@ -1,0 +1,1332 @@
+/* ===================================================================
+   Portfolio styles — one file, top to bottom:
+     1. Variables + reset
+     2. Top bar (clock, flag, name, nav)
+     3. Page layout
+     4. Sections (intro, experience/education, skills)
+     5. Lists + socials
+     6. Gallery + lightbox
+     7. Footer
+     8. Project categories (tabs + cards)
+     9. Responsive
+   =================================================================== */
+
+/* ---------- 1. Variables + reset ---------- */
+:root {
+  --text: #1a1a1a;      /* main text      */
+  --muted: #999;        /* dates, labels  */
+  --line: #ececec;      /* borders        */
+  --link: #3b5bdb;      /* link colour    */
+  --accent-dev: #3b5bdb;        /* Development projects accent */
+  --accent-consulting: #0d9488; /* Consulting projects accent  */
+  --bg: #ffffff;
+  --max-width: 1080px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--link);
+}
+
+/* ---------- 2. Top bar ---------- */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 40px;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+
+/* Auckland clock + NZ flag, pinned to the left */
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.meta .flag {
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.meta .dot {
+  color: var(--line);
+}
+
+.name {
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 10px;
+}
+/* the nav buttons are .metal-btn (see section 5) — just size them down a bit here */
+.nav .metal-btn {
+  height: 38px;
+  padding: 0 20px;
+}
+
+/* ---------- 3. Page layout ---------- */
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 70px 40px 40px;
+}
+
+/* space between the stacked sections on a page */
+.block {
+  margin-top: 56px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 16px;
+}
+
+/* ---------- 4. Sections ---------- */
+
+/* Intro: text on the left, photo on the right */
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 60px;
+  align-items: start;
+}
+.intro-text p {
+  max-width: 52ch;
+  text-align: justify;
+}
+.intro-photo img {
+  width: 100%;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.intro .label {
+  margin-top: 34px;
+}
+
+/* Summary bullets */
+.summary {
+  list-style: none;
+}
+.summary li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 4px;
+}
+.summary li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+
+/* Experience + Education entries */
+.entry {
+  max-width: 62ch;
+  margin-bottom: 24px;
+}
+.entry:last-child {
+  margin-bottom: 0;
+}
+.entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+}
+.entry-title {
+  font-weight: 600;
+}
+.entry-date {
+  color: var(--muted);
+  font-size: 13px;
+  white-space: nowrap;
+}
+.entry-org {
+  color: var(--muted);
+  font-size: 14px;
+}
+.entry-desc {
+  margin-top: 6px;
+}
+
+/* Skills table */
+.skills {
+  display: grid;
+  gap: 10px;
+  max-width: 62ch;
+}
+.skills > div {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 16px;
+}
+.skills dt {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ---------- 5. Lists + socials ---------- */
+.list {
+  list-style: none;
+  max-width: 62ch;
+}
+.list li {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.list-title {
+  align-self: start;          /* underline hugs the text, not the whole row */
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid var(--line);
+  transition: border-color 0.15s ease;
+}
+.list-title:hover {
+  border-bottom-color: var(--text);
+}
+.list-desc {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.socials {
+  display: flex;
+  gap: 18px;
+  margin-top: 28px;
+}
+.socials a {
+  display: inline-flex;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.socials a:hover {
+  color: var(--text);
+}
+.socials svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Text links inside the content (Summary, Experience, Projects).
+   Normal text colour + a grey underline; on hover the underline
+   darkens and the arrow nudges up-and-right. */
+.intro-text a:not(.social-link):not(.metal-btn),
+.entry-desc a,
+.list-desc a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  transition: border-color 0.15s ease;
+}
+.intro-text a:not(.social-link):hover,
+.entry-desc a:hover,
+.list-desc a:hover {
+  border-bottom-color: var(--text);
+}
+
+/* "Opens in a new tab" arrow, added automatically to external links.
+   It's a thin SVG so it stays crisp at any size — tweak --arrow-size
+   to make it bigger or smaller. On hover it darkens and nudges. */
+.intro-text a[target="_blank"]:not(.social-link)::after,
+.entry-desc a[target="_blank"]::after,
+.list-desc a[target="_blank"]::after,
+.list-title[target="_blank"]::after {
+  --arrow-size: 1.15em;
+  content: "";
+  display: inline-block;
+  width: var(--arrow-size);
+  height: var(--arrow-size);
+  margin-left: 4px;
+  vertical-align: -0.15em;
+  background: no-repeat center / contain
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='7' y1='17' x2='17' y2='7'/%3E%3Cpolyline points='8 7 17 7 17 16'/%3E%3C/svg%3E");
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+.intro-text a[target="_blank"]:not(.social-link):hover::after,
+.entry-desc a[target="_blank"]:hover::after,
+.list-desc a[target="_blank"]:hover::after,
+.list-title[target="_blank"]:hover::after {
+  transform: translate(2px, -2px);
+  filter: brightness(0); /* grey arrow -> near-black on hover */
+}
+
+/* Small logo / avatar sitting inline with text (see Summary bullets) */
+.inline-logo {
+  display: inline-block;      /* overrides the global `img { display: block }` */
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;         /* add class "round" for circular avatars */
+  object-fit: cover;
+  vertical-align: -4px;       /* nudges it onto the text baseline */
+  margin: 0 3px 0 1px;
+}
+.inline-logo.round {
+  border-radius: 50%;
+}
+
+/* Nav buttons (Projects, Gallery).
+   Two variants for hierarchy: --primary is filled, --ghost is outline.
+   Motion is CSS, tuned to the Framer Motion spec: ~180ms, a spring-like
+   ease with a touch of overshoot, scale-up on hover, scale-down on press. */
+.metal-btn {
+  --btn-ease: cubic-bezier(0.34, 1.4, 0.64, 1); /* mild spring overshoot */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  height: 46px;
+  padding: 0 26px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--text);
+  transition: transform 180ms var(--btn-ease), background-color 180ms ease,
+    border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
+}
+.metal-btn:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+.metal-btn:active {
+  transform: scale(0.97);
+  transition-duration: 90ms;
+}
+
+
+/* Secondary — ghost / outline, flat at rest */
+.metal-btn--ghost {
+  background-color: transparent;
+  border-color: rgba(0, 0, 0, 0.18);
+}
+.metal-btn--ghost:hover {
+  transform: scale(1.03);
+  background-color: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.32);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+.metal-btn--ghost:active {
+  transform: scale(0.97);
+  background-color: rgba(0, 0, 0, 0.07);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .metal-btn,
+  .metal-btn:hover,
+  .metal-btn:active {
+    transform: none;
+    transition: background-color 120ms ease, border-color 120ms ease,
+      box-shadow 120ms ease;
+  }
+}
+
+/* Split button — a main action with an attached round icon segment on the
+   right. The pasted Tailwind spec is that right segment (.split-btn__toggle). */
+.split-btn {
+  display: inline-flex;
+  align-items: stretch;
+}
+.split-btn > a,
+.split-btn > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 16px;
+  font: 500 14px/1 inherit;
+  white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fafafa;
+  background: #171717;
+  border: 0;
+  border-radius: 9999px;
+  outline-offset: 2px;
+  transition: background 0.15s ease, transform 0.15s ease;
+  box-shadow: 0 0 0 0.5px rgb(23, 23, 23),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+.split-btn > *:hover {
+  background: rgba(23, 23, 23, 0.9);
+}
+.split-btn > *:active {
+  transform: scale(0.97);
+}
+.split-btn > *:focus-visible {
+  outline: 2px solid rgba(23, 23, 23, 0.7);
+}
+.split-btn > *:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.split-btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+.split-btn__main {         /* left segment: flat inner edge */
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.split-btn__toggle {       /* right segment: narrow, icon only, left divider */
+  width: 32px;
+  padding: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: 1px solid rgba(250, 250, 250, 0.3);
+}
+
+/* ---------- 6. Gallery + lightbox ---------- */
+.gallery-intro {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 22px;
+}
+
+/* Masonry-style columns — images keep their own height */
+.gallery-grid {
+  columns: 3 240px;
+  column-gap: 14px;
+}
+.gallery-grid img {
+  width: 100%;
+  margin-bottom: 14px;
+  border-radius: 4px;
+  cursor: zoom-in;
+  break-inside: avoid;
+  transition: opacity 0.15s ease;
+}
+.gallery-grid img:hover {
+  opacity: 0.85;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.85);
+  cursor: zoom-out;
+}
+.lightbox.open {
+  display: flex;
+}
+.lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 4px;
+  cursor: default;
+}
+.lightbox__close,
+.lightbox__prev,
+.lightbox__next {
+  position: absolute;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.45);
+  font: 24px/1 var(--font);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.lightbox__close:hover,
+.lightbox__prev:hover,
+.lightbox__next:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.75);
+}
+.lightbox__close:focus-visible,
+.lightbox__prev:focus-visible,
+.lightbox__next:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+.lightbox__close {
+  top: 24px;
+  right: 24px;
+  font-size: 28px;
+}
+.lightbox__prev {
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.lightbox__next {
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ---------- 7. Footer ---------- */
+.foot {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 60px 40px 40px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ---------- 8. Project categories (tabs + cards) ---------- */
+
+.section-intro {
+  color: var(--text);
+  font-size: 14px;
+  max-width: 60ch;
+  margin: 0 0 20px;
+}
+
+/* Centre the Projects header + toggle, and make that text black */
+.projects {
+  text-align: center;
+}
+.projects .label {
+  color: var(--text);
+}
+.projects .section-intro,
+.projects .panel-intro {
+  margin-left: auto;
+  margin-right: auto;
+}
+.projects .card {
+  text-align: left; /* card bodies stay left-aligned for readability */
+}
+/* Let the card grid run wider than the rest of the page content, so the
+   3 cards get more room. Centred with the margin-left/transform trick. */
+.projects .cards {
+  width: min(1220px, calc(100vw - 60px));
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Segmented tab switcher */
+.tabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  margin-bottom: 26px;
+  background: #f4f4f5;
+  border-radius: 12px;
+}
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--text);
+  font: 600 13px/1 var(--font);
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+.tab svg {
+  width: 15px;
+  height: 15px;
+}
+.tab:hover {
+  color: var(--text);
+}
+.tab.is-active {
+  background: var(--bg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+.tab[data-panel="dev"].is-active {
+  color: var(--accent-dev);
+}
+.tab[data-panel="consulting"].is-active {
+  color: var(--accent-consulting);
+}
+.tab:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+
+/* Panels — one shown at a time, fading/sliding in when switched */
+.panel {
+  display: none;
+}
+.panel.is-active {
+  display: block;
+  animation: panel-in 0.25s ease both;
+}
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Each panel carries its own accent colour + matching tag tint */
+.panel[data-accent="dev"] {
+  --panel-accent: var(--accent-dev);
+  --panel-tint: #eef1fc;
+  --panel-tint-border: #d7def7;
+}
+.panel[data-accent="consulting"] {
+  --panel-accent: var(--accent-consulting);
+  --panel-tint: #e4f4f2;
+  --panel-tint-border: #c2e5e0;
+}
+.panel-intro {
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 60ch;
+  margin-bottom: 18px;
+}
+
+/* Project cards — 3-up grid, dropping to 2 then 1 on smaller screens.
+   A partial last row (1–2 cards) stays left-aligned at the same column
+   width, so cards never stretch unevenly. */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;   /* every row the same height, so CTAs line up */
+  gap: 20px;
+  align-items: stretch;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;          /* fill the (equal-height) grid cell */
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--panel-accent);
+  border-radius: 12px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.07);
+}
+
+/* Card image box. Empty (with a letter inside) it's an accent-tinted
+   placeholder; drop an <img> inside it and the image fills the box,
+   cropped to the same 16:10 and clipped to the border-radius. */
+.card-media {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  margin-bottom: 14px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--panel-tint-border);
+  background: linear-gradient(135deg, var(--panel-tint), #fff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--panel-accent);
+}
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top; /* show the top of the screenshot, not a cropped middle strip */
+  display: block;
+}
+
+.card-media--logo img {
+  object-fit: contain;
+  object-position: center;
+  padding: 4px;
+}
+
+/* Project-type badge: base = client/professional, --learning = personal/academic */
+.card-badge {
+  align-self: flex-start;
+  margin-bottom: 10px;
+  padding: 3px 9px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 5px;
+  color: var(--muted);
+  background: #f4f4f5;
+  border: 1px solid var(--line);
+}
+.card-badge--learning {
+  color: #b45309;
+  background: #fdf4e8;
+  border-color: #f2ddc2;
+}
+
+/* Stagger the cards in as they enter the viewport (script.js block 5
+   adds .reveal to the grid, then .in-view per card). No JS = no hiding. */
+.cards.reveal .card {
+  opacity: 0;
+}
+.cards.reveal .card.in-view {
+  opacity: 1;
+  animation: card-in 0.5s ease backwards;
+  animation-delay: calc(var(--reveal-i, 0) * 60ms);
+}
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-head {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 8px;
+}
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+.card-meta {
+  flex-shrink: 0;
+  color: var(--muted);
+  font-size: 13px;
+  color:#b45309
+}
+.card-desc {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.card-line {
+  font-size: 13.5px;
+  margin-bottom: 3px;
+}
+.card-key {
+  display: inline-block;
+  min-width: 50px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+    color:#b45309
+
+}
+
+/* Lead line: the one-sentence hook above the description */
+.card-hook {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Numbers / metrics in card and case study copy get the accent colour */
+.card strong,
+.case strong {
+  color: var(--panel-accent);
+  font-weight: 600;
+}
+
+/* A whole consulting card that is a link to its case study page */
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.card-link:focus-visible {
+  outline: 2px solid var(--panel-accent);
+  outline-offset: 2px;
+}
+/* FlowButton, used two ways:
+   - Consulting cards: a decorative <span> inside the whole card's <a>;
+     the card link does the navigating, and hovering anywhere on the card
+     triggers it (.card-link:hover .flow-btn below).
+   - Development cards: a real <a class="flow-btn"> (Live / GitHub / etc),
+     which triggers on its own hover/focus since it's the link itself.
+   Same look and animation either way. margin-top: auto pins it to the
+   bottom of the flex-column card, so it never crowds the tags above. */
+.flow-btn {
+  --flow-fill: #111111;
+  position: relative;
+  align-self: flex-start;
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  overflow: hidden;
+  padding: 12px 32px;
+  border: 1.5px solid rgba(51, 51, 51, 0.4);
+  border-radius: 100px;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--flow-fill);
+  text-decoration: none;
+  transition: color 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+    border-radius 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.2s ease;
+}
+.flow-btn__text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: transform 0.8s ease-out;
+}
+.flow-btn__arrow {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  z-index: 9;
+  color: var(--flow-fill);
+  transition: left 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+    right 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.flow-btn__arrow svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.flow-btn__arrow--in {
+  left: -25%;
+}
+.flow-btn__arrow--out {
+  right: 16px;
+}
+.flow-btn__circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--flow-fill);
+  opacity: 0;
+  transition: width 0.8s cubic-bezier(0.19, 1, 0.22, 1),
+    height 0.8s cubic-bezier(0.19, 1, 0.22, 1),
+    opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.card-link:hover .flow-btn,
+.card-link:focus-visible .flow-btn,
+.flow-btn:hover,
+.flow-btn:focus-visible {
+  border-color: transparent;
+  border-radius: 12px;
+  color: #fff;
+}
+.card-link:hover .flow-btn__text,
+.card-link:focus-visible .flow-btn__text,
+.flow-btn:hover .flow-btn__text,
+.flow-btn:focus-visible .flow-btn__text {
+  transform: translateX(12px);
+}
+.card-link:hover .flow-btn__arrow--in,
+.card-link:focus-visible .flow-btn__arrow--in,
+.flow-btn:hover .flow-btn__arrow--in,
+.flow-btn:focus-visible .flow-btn__arrow--in {
+  left: 16px;
+  color: #fff;
+}
+.card-link:hover .flow-btn__arrow--out,
+.card-link:focus-visible .flow-btn__arrow--out,
+.flow-btn:hover .flow-btn__arrow--out,
+.flow-btn:focus-visible .flow-btn__arrow--out {
+  right: -25%;
+  color: #fff;
+}
+.card-link:hover .flow-btn__circle,
+.card-link:focus-visible .flow-btn__circle,
+.flow-btn:hover .flow-btn__circle,
+.flow-btn:focus-visible .flow-btn__circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+}
+.card-link:active .flow-btn,
+.flow-btn:active {
+  transform: scale(0.95);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-btn,
+  .flow-btn__text,
+  .flow-btn__arrow,
+  .flow-btn__circle {
+    transition: none;
+  }
+}
+
+/* Skill / tech tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 6px;
+  list-style: none;
+  margin: 13px 0 16px;   /* the 16px is the min gap before the CTA below */
+  padding: 0;
+}
+.tags li {
+  padding: 3px 10px;
+  font-size: 12px;
+  border-radius: 999px;
+  color: var(--panel-accent);
+  background: var(--panel-tint);
+  border: 1px solid var(--panel-tint-border);
+}
+
+.card-links {
+  display: flex;
+  gap: 16px;
+  margin-top: auto;    /* pin to the bottom of equal-height grid cards */
+}
+/* the links inside are .flow-btn, same as the consulting cards (see below) */
+
+/* ---------- Case study page (case-study.html) ---------- */
+
+/* Cross-document fade on navigation, where the browser supports it */
+@view-transition {
+  navigation: auto;
+}
+
+.case {
+  /* all case studies are consulting, so borrow that accent + tint */
+  --panel-accent: var(--accent-consulting);
+  --panel-tint: #e4f4f2;
+  --panel-tint-border: #c2e5e0;
+  max-width: 62ch;
+  margin: 0 auto;
+  animation: panel-in 0.3s ease both; /* reuses the tab-panel fade/slide */
+}
+.case-back {
+  margin-bottom: 22px;
+  font-size: 13px;
+}
+.case-back a {
+  color: var(--muted);
+  text-decoration: none;
+}
+.case-back a:hover {
+  color: var(--text);
+}
+.case-back--bottom {
+  margin: 44px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.case .card-badge {
+  margin-bottom: 14px;
+}
+.case-logo {
+  width: 220px;
+  height: auto;
+  margin-bottom: 18px;
+}
+.case-title {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.case-meta {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.case-hook {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.45;
+  margin-bottom: 14px;
+}
+.case-overview {
+  font-size: 15px;
+  margin-bottom: 18px;
+}
+.case .tags {
+  margin-bottom: 4px;
+}
+.case-section {
+  margin-top: 30px;
+}
+.case-section h2 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.case-section p {
+  margin-bottom: 12px;
+}
+.case-section ul {
+  margin: 0 0 12px;
+  padding-left: 20px;
+}
+.case-section li {
+  margin-bottom: 8px;
+}
+
+/* ---------- Blog (blogs.html, blog-post.html) ---------- */
+
+/* Editorial blog listing: compact, equal-height cards in a responsive grid. */
+.blog-page {
+  margin-top: 16px;
+}
+.blog-page__intro {
+  max-width: 700px;
+  margin-bottom: 42px;
+}
+.blog-page__eyebrow {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin-bottom: 12px;
+}
+.blog-page__intro h1 {
+  max-width: none;
+  font-size: clamp(14px, 2.4vw, 30px);
+  font-weight: 700;
+  line-height: 1.08;
+  white-space: nowrap;
+}
+.blog-page__lede {
+  max-width: 50ch;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 16px;
+}
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.blog-card {
+  display: block;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: inherit;
+  text-decoration: none;
+  overflow: hidden;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.blog-card:hover {
+  border-color: #cfcfcf;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.05);
+}
+.blog-card:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+.blog-card__image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #f4f4f4;
+}
+.blog-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.blog-card:first-child .blog-card__image img,
+.blog-card:nth-child(4) .blog-card__image img {
+  object-fit: cover;
+}
+.blog-card__body {
+  display: flex;
+  flex-direction: column;
+  min-height: 206px;
+  padding: 18px 18px 16px;
+}
+.blog-card__meta {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.blog-card h2 {
+  margin-top: 9px;
+  font-size: 18px;
+  font-weight: 650;
+  line-height: 1.25;
+}
+.blog-card__hook {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.blog-card__excerpt {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.blog-card__more {
+  display: inline-block;
+  margin-top: auto;
+  padding-top: 18px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.blog-card:hover .blog-card__more {
+  color: var(--text);
+}
+
+/* Full post: readable column, image (if any) shown large below the text,
+   same visual rhythm as the case study page. */
+.post {
+  max-width: 62ch;
+  margin: 0 auto;
+  animation: panel-in 0.3s ease both;
+}
+.post-back {
+  margin-bottom: 22px;
+  font-size: 13px;
+}
+.post-back a {
+  color: var(--muted);
+  text-decoration: none;
+}
+.post-back a:hover {
+  color: var(--text);
+}
+.post-back--bottom {
+  margin: 44px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.post-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.post-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.post-name {
+  font-weight: 600;
+  font-size: 16px;
+}
+.post-meta {
+  color: var(--muted);
+  font-size: 13px;
+}
+.post-hook {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+.post-body p {
+  font-size: 15px;
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.post-image {
+  width: 100%;
+  border-radius: 12px;
+  margin: 22px 0;
+}
+.post-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+.post-gallery__item {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  background: #f4f4f4;
+  cursor: zoom-in;
+}
+.post-gallery__item:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+.post-gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.post-gallery__item:hover img {
+  transform: scale(1.03);
+  opacity: 0.88;
+}
+.post-related {
+  margin-top: 8px;
+  font-size: 14px;
+}
+.post-related a {
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  transition: border-color 0.15s ease;
+}
+.post-related a:hover {
+  border-bottom-color: var(--text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel.is-active {
+    animation: none;
+  }
+  .card:hover {
+    transform: none;
+  }
+  .case {
+    animation: none;
+  }
+  .blog-card:hover {
+    transform: none;
+  }
+  .post {
+    animation: none;
+  }
+  .post-gallery__item img {
+    transition: none;
+  }
+}
+
+/* Tablet: two project cards per row */
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .blog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------- 9. Responsive ---------- */
+@media (max-width: 720px) {
+  .topbar {
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    padding: 14px 20px;
+  }
+  .wrap {
+    padding: 40px 20px;
+  }
+  .intro {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .intro-photo {
+    order: -1; /* photo first on mobile */
+    max-width: 220px;
+  }
+  .skills > div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  .entry-head {
+    flex-direction: column;
+    gap: 2px;
+  }
+  .tabs {
+    display: flex;
+  }
+  .tab {
+    flex: 1;
+    justify-content: center;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto; /* single column, let each card be its own height */
+  }
+  .blog-page__intro {
+    margin-bottom: 30px;
+  }
+  .blog-page__intro h1 {
+    font-size: 14px;
+  }
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .gallery-grid {
+    columns: 2 150px;
+  }
+  .foot {
+    padding: 40px 20px;
+  }
+}

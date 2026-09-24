@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blogs</title>
+  <meta name="description" content="Short, LinkedIn-style posts by Umesh Nayak." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ===== Shared top bar (keep this identical on every page) ===== -->
+  <header class="topbar">
+    <div class="meta">
+      <svg class="flag" viewBox="0 0 40 24" width="26" height="16" role="img" aria-label="New Zealand">
+        <rect width="40" height="24" fill="#00247d" />
+        <path d="M0 0 20 12M20 0 0 12" stroke="#fff" stroke-width="3" />
+        <path d="M10 0V12M0 6H20" stroke="#fff" stroke-width="4" />
+        <path d="M10 0V12M0 6H20" stroke="#cc142b" stroke-width="2" />
+        <path d="M0 0 20 12M20 0 0 12" stroke="#cc142b" stroke-width="1" />
+        <circle cx="33" cy="6" r="1.7" fill="#cc142b" />
+        <circle cx="27" cy="12" r="1.7" fill="#cc142b" />
+        <circle cx="35" cy="15" r="1.7" fill="#cc142b" />
+        <circle cx="31" cy="19" r="1.7" fill="#cc142b" />
+      </svg>
+      <span id="clock">--:--</span>
+      <span class="dot">·</span>
+      <span>Auckland</span>
+    </div>
+
+    <a href="index.html" class="name">Umesh Nayak</a>
+
+    <nav class="nav">
+      <a class="metal-btn metal-btn--ghost" href="index.html">Home</a>
+      <a class="metal-btn metal-btn--ghost" href="projects.html">Projects</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="blog-page">
+      <header class="blog-page__intro">
+        <p class="blog-page__eyebrow">BLOG</p>
+        <h1>Thoughts, experiences, stories and things I've learned along the way.</h1>
+        <p class="blog-page__lede">Notes on building products, learning in public, and finding the useful idea in the work.</p>
+      </header>
+
+      <div class="blog-grid">
+        <a class="blog-card" href="blog-post.html?slug=demystifying-git">
+          <div class="blog-card__image"><img src="img/blog/blog1/IMG_7230.JPG.jpeg" alt="Demystifying Git event" /></div>
+          <div class="blog-card__body"><p class="blog-card__meta">Community &middot; 02 Sep 2026</p><h2>Spent my evening diving into the internals of Git</h2><p class="blog-card__excerpt">A few notes from Demystifying Git with the NZ GitHub User Group.</p><span class="blog-card__more">Read More <span aria-hidden="true">&rarr;</span></span></div>
+        </a>
+        <a class="blog-card" href="blog-post.html?slug=ibm-techxchange">
+          <div class="blog-card__image"><img src="img/blog/blog2/1.jpeg" alt="IBM TechXchange event" /></div>
+          <div class="blog-card__body"><p class="blog-card__meta">Security &middot; 27 Aug 2026</p><h2>IBM TechXchange, what an incredible experience!</h2><p class="blog-card__excerpt">Learning how modern security teams combine automation, resilience, and DevSecOps.</p><span class="blog-card__more">Read More <span aria-hidden="true">&rarr;</span></span></div>
+        </a>
+        <a class="blog-card" href="blog-post.html?slug=aws-tools-programming-april-meetup">
+          <div class="blog-card__image"><img src="img/blog/blog3/1.jpg" alt="AWS Tools and Programming April Meetup" /></div>
+          <div class="blog-card__body"><p class="blog-card__meta">Cloud &amp; DevOps &middot; 23 Apr 2026</p><h2>AWS Tools and Programming April Meetup</h2><p class="blog-card__excerpt">An evening of knowledge graphs, ECS supply chain security, and cloud community connections.</p><span class="blog-card__more">Read More <span aria-hidden="true">&rarr;</span></span></div>
+        </a>
+        <a class="blog-card" href="blog-post.html?slug=contributing-to-open-source-with-ai-responsibly">
+          <div class="blog-card__image"><img src="img/blog/blog4/1.jpeg" alt="Contributing to Open Source With AI Responsibly event" /></div>
+          <div class="blog-card__body"><p class="blog-card__meta">Open Source &middot; 21 Apr 2026</p><h2>Contributing to Open Source With AI Responsibly</h2><p class="blog-card__excerpt">An eye-opening session on meaningful contributions, AI slop, and responsible open source work.</p><span class="blog-card__more">Read More <span aria-hidden="true">&rarr;</span></span></div>
+        </a>
+        <a class="blog-card" href="blog-post.html?slug=aws-auckland-well-architected-user-group">
+          <div class="blog-card__image"><img src="img/blog/blog5/1.jpeg" alt="AWS Auckland Well-Architected User Group Meetup" /></div>
+          <div class="blog-card__body"><p class="blog-card__meta">Cloud Architecture &middot; 08 Apr 2026</p><h2>AWS Auckland Well-Architected User Group Meetup</h2><p class="blog-card__excerpt">AWS best practices, cost optimization, container security, and building AI agents.</p><span class="blog-card__more">Read More <span aria-hidden="true">&rarr;</span></span></div>
+        </a>
+        <a class="blog-card" href="blog-post.html?slug=child-cancer-foundation-street-appeal">
+          <div class="blog-card__image"><img src="img/blog/blog6/images.jpg" alt="Child Cancer Foundation Street Appeal" /></div>
+          <div class="blog-card__body"><p class="blog-card__meta">Community &middot; 14 Mar 2026</p><h2>Supporting the Child Cancer Foundation on Queen Street</h2><p class="blog-card__excerpt">Volunteering during the Street Appeal fundraiser with friends and the Student Volunteer Army.</p><span class="blog-card__more">Read More <span aria-hidden="true">&rarr;</span></span></div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>&copy; <span id="year"></span> Umesh Nayak</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

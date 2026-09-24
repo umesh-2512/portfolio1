@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects</title>
+  <meta name="description" content="Development and IT consulting projects by Umesh Nayak." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ===== Shared top bar ===== -->
+  <header class="topbar">
+    <div class="meta">
+      <svg class="flag" viewBox="0 0 40 24" width="26" height="16" role="img" aria-label="New Zealand">
+        <rect width="40" height="24" fill="#00247d" />
+        <path d="M0 0 20 12M20 0 0 12" stroke="#fff" stroke-width="3" />
+        <path d="M10 0V12M0 6H20" stroke="#fff" stroke-width="4" />
+        <path d="M10 0V12M0 6H20" stroke="#cc142b" stroke-width="2" />
+        <path d="M0 0 20 12M20 0 0 12" stroke="#cc142b" stroke-width="1" />
+        <circle cx="33" cy="6" r="1.7" fill="#cc142b" />
+        <circle cx="27" cy="12" r="1.7" fill="#cc142b" />
+        <circle cx="35" cy="15" r="1.7" fill="#cc142b" />
+        <circle cx="31" cy="19" r="1.7" fill="#cc142b" />
+      </svg>
+      <span id="clock">--:--</span>
+      <span class="dot">·</span>
+      <span>Auckland</span>
+    </div>
+
+    <a href="index.html" class="name">Umesh Nayak</a>
+
+    <nav class="nav">
+      <a class="metal-btn metal-btn--ghost" href="index.html">Home</a>
+      <a class="metal-btn metal-btn--ghost" href="blogs.html">Blogs</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+
+    <!-- ===== Skills ===== -->
+    <section class="block">
+      <h2 class="label" style="color: rgb(100, 58, 0) ">Skills</h2>
+      <dl class="skills">
+        <div><dt style="color:#b45309">Languages</dt><dd>JavaScript (ES6+), TypeScript, Python, PHP, SQL, C#</dd></div>
+        <div><dt style="color:#b45309">Frontend</dt><dd>React, Next.js, Vue.js, HTML5, CSS3, Tailwind, Bootstrap</dd></div>
+        <div><dt style="color:#b45309">Backend</dt><dd>Node.js, Express, ASP.NET, REST APIs</dd></div>
+        <div><dt style="color:#b45309">Databases</dt><dd>MongoDB, MySQL, Supabase, Neon (Postgres)</dd></div>
+        <div><dt style="color:#b45309">Tools</dt><dd>Git, Postman, Figma, Vite, Netlify, Vercel, NGINX, PM2</dd></div>
+        <div><dt style="color:#b45309">AI &amp; Cloud</dt><dd>OpenAI API, Google Cloud (Generative AI), AWS</dd></div>
+      </dl>
+    </section>
+
+    <!-- ===== Projects: two categories, switched with the tabs below ===== -->
+    <section class="block projects">
+      <h2 class="label">Projects</h2>
+      <p class="section-intro">
+        I work along two tracks, building products as a developer, and
+        advising teams as an IT consultant. Switch between them below.
+      </p>
+
+      <!-- Tab switcher. The panel swap + fade lives in script.js (block 4). -->
+      <div class="tabs" role="tablist" aria-label="Project category">
+        <button class="tab is-active" id="tab-dev" role="tab" aria-selected="true"
+                aria-controls="panel-dev" data-panel="dev">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" />
+          </svg>
+          Development
+        </button>
+        <button class="tab" id="tab-consulting" role="tab" aria-selected="false"
+                aria-controls="panel-consulting" data-panel="consulting" tabindex="-1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="20" height="14" x="2" y="7" rx="2" />
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+          </svg>
+          Consulting
+        </button>
+      </div>
+
+      <!-- ===== Development panel ===== -->
+      <div class="panel is-active" id="panel-dev" role="tabpanel"
+           aria-labelledby="tab-dev" data-accent="dev">
+        <div class="cards">
+
+          <article class="card">
+            <div class="card-media">
+              <img src="img/FIDELIO.png" alt="Fidelio project">
+            </div>
+            <span class="card-badge">Client project</span>
+            <div class="card-head">
+              <h3 class="card-title">Fidelio</h3>
+              <span class="card-meta">Wine estate, Blenheim</span>
+            </div>
+            <p class="card-desc">
+              Full-stack website for a wine estate owner in Blenheim, built to
+              bring in more wine tasting bookings. Runs on the MERN stack,
+              hosted on Vercel with a Neon Postgres database.
+            </p>
+            <p class="card-line"><span class="card-key">Scope</span> Built the full stack solo: marketing pages, the tasting booking flow and the database, then deployed on Vercel and Neon.</p>
+            <p class="card-line"><span class="card-key">Impact</span> Gave the estate a direct online booking path, so visitors can reserve a tasting on the site instead of calling or emailing.</p>
+            <ul class="tags">
+              <li>React</li>
+              <li>Express</li>
+              <li>Node.js</li>
+              <li>Neon Postgres</li>
+              <li>Vercel</li>
+            </ul>
+            <div class="card-links">
+              <a class="flow-btn" href="https://www.fidelio.co.nz/" target="_blank" rel="noopener noreferrer">
+                <span class="flow-btn__arrow flow-btn__arrow--in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                <span class="flow-btn__text">Live</span>
+                <span class="flow-btn__circle"></span>
+                <span class="flow-btn__arrow flow-btn__arrow--out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-media"><img src="img/WEAVE.png" alt="Weave project"></div>
+            <span class="card-badge">Internship</span>
+            <div class="card-head">
+              <h3 class="card-title">Weave</h3>
+              <span class="card-meta">Lead Frontend Developer. 2025-26</span>
+            </div>
+            <p class="card-desc">
+              GenAI-powered travel &amp; booking platform. Owned the entire
+              frontend, trip-planning dashboards, AI-assisted research
+              tools and interactive visual planners.
+            </p>
+            <p class="card-line"><span class="card-key">Scope</span> Sole frontend developer in an Agile team; owned architecture, the component system and responsive design.</p>
+            <p class="card-line"><span class="card-key">Impact</span> Delivered the complete frontend in a 3-month cycle under CyberCX mentorship, with regular code reviews and a consistent, reusable UI.</p>
+            <ul class="tags">
+              <li>React</li>
+              <li>Next.js</li>
+              <li>TypeScript</li>
+              <li>Tailwind CSS</li>
+              <li>REST APIs</li>
+              <li>OpenAI API</li>
+              <li>Figma</li>
+              <li>Git</li>
+            </ul>
+          <div class="card-links">
+              <a class="flow-btn" href="https://drive.google.com/drive/folders/1KBLCtx2wzvr4fm2CiUw_Vb1h2JAma3bJ?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <span class="flow-btn__arrow flow-btn__arrow--in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                <span class="flow-btn__text">Video's</span>
+                <span class="flow-btn__circle"></span>
+                <span class="flow-btn__arrow flow-btn__arrow--out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-media"><img src="img/booking.png" alt="Video Call Booking Platform"></div>
+            <span class="card-badge card-badge--learning">Personal project</span>
+            <div class="card-head">
+              <h3 class="card-title">Video Call Booking Platform</h3>
+              <span class="card-meta">Guidance for international students</span>
+            </div>
+            <p class="card-desc">
+              A booking platform for the free one-on-one video calls I run to
+              help international students understand the New Zealand education
+              system. Students pick a time and book a call through the form,
+              which handles the scheduling end to end. Built for an audience of
+              17K followers.
+            </p>
+            <p class="card-line"><span class="card-key">Scope</span> Built the booking form, the slot scheduling logic and the Supabase backend that stores and manages the calls.</p>
+            <p class="card-line"><span class="card-key">Impact</span> Lets students self-book a free guidance call in a few clicks, replacing the back-and-forth messaging across a 17K-follower audience.</p>
+            <ul class="tags">
+              <li>React</li>
+              <li>Express</li>
+              <li>Node.js</li>
+              <li>Supabase</li>
+            </ul>
+            <div class="card-links">
+              <a class="flow-btn" href="https://gujjukiwi.netlify.app/" target="_blank" rel="noopener noreferrer">
+                <span class="flow-btn__arrow flow-btn__arrow--in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                <span class="flow-btn__text">Live</span>
+                <span class="flow-btn__circle"></span>
+                <span class="flow-btn__arrow flow-btn__arrow--out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-media"><img src="img/agrihire.png" alt="Farm Equipment Rental Platform"></div>
+            <span class="card-badge card-badge--learning">Academic project</span>
+            <div class="card-head">
+              <h3 class="card-title">Farm Equipment Rental Platform</h3>
+              <span class="card-meta">University assignment</span>
+            </div>
+            <p class="card-desc">
+              A peer-to-peer rental marketplace where farmers rent equipment to
+              each other through the busy harvest season. Built on the MERN
+              stack as a university assignment.
+            </p>
+            <p class="card-line"><span class="card-key">Scope</span> Built the full MERN application: equipment listings, search, and the rental request flow between farmers.</p>
+            <p class="card-line"><span class="card-key">Impact</span> Modelled a way for farms to share idle equipment during peak harvest weeks instead of buying their own.</p>
+            <ul class="tags">
+              <li>MongoDB</li>
+              <li>Express</li>
+              <li>React</li>
+              <li>Node.js</li>
+            </ul>
+            <div class="card-links">
+              <a class="flow-btn" href="https://agrihire.netlify.app/" target="_blank" rel="noopener noreferrer">
+                <span class="flow-btn__arrow flow-btn__arrow--in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                <span class="flow-btn__text">Live</span>
+                <span class="flow-btn__circle"></span>
+                <span class="flow-btn__arrow flow-btn__arrow--out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-media"><img src="img/kiwikart.png" alt="KiwiKart"></div>
+            <span class="card-badge card-badge--learning">Academic project</span>
+            <div class="card-head">
+              <h3 class="card-title">KiwiKart</h3>
+              <span class="card-meta">University assignment</span>
+            </div>
+            <p class="card-desc">
+              A regional marketplace platform built as a university assignment.
+              Uses Particle.js for the animated background effects on top of a
+              MERN stack.
+            </p>
+            <p class="card-line"><span class="card-key">Scope</span> Built the MERN marketplace: product listings and checkout, with a Particle.js animated background.</p>
+            <p class="card-line"><span class="card-key">Impact</span> Delivered a working regional marketplace prototype covering the core buy and sell journey.</p>
+            <ul class="tags">
+              <li>MongoDB</li>
+              <li>Express</li>
+              <li>React</li>
+              <li>Node.js</li>
+              <li>Particle.js</li>
+            </ul>
+            
+            <div class="card-links">
+              <a class="flow-btn" href="https://kiwikart.netlify.app/#/" target="_blank" rel="noopener noreferrer">
+                <span class="flow-btn__arrow flow-btn__arrow--in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                <span class="flow-btn__text">Live</span>
+                <span class="flow-btn__circle"></span>
+                <span class="flow-btn__arrow flow-btn__arrow--out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ===== Consulting panel =====
+           Each card is a link to case-study.html?slug=<slug>. The full
+           write-up lives in consulting.js; these are just previews. -->
+      <div class="panel" id="panel-consulting" role="tabpanel"
+           aria-labelledby="tab-consulting" data-accent="consulting">
+        <div class="cards">
+
+          <a class="card card-link" href="case-study.html?slug=fidelio">
+            <div class="card-media"><img src="img/FIDELIO.png" alt="Fidelio project"></div>
+            <span class="card-badge">Client project</span>
+            <div class="card-head">
+              <h3 class="card-title">Fidelio</h3>
+              <span class="card-meta">Wine estate, Blenheim</span>
+            </div>
+            <p class="card-desc">
+              Alongside building the site, I advised the owner on the digital
+              side of the business: the booking flow, digital presence, and
+              turning more site visits into confirmed tasting bookings.
+            </p>
+            <ul class="tags">
+              <li>Stakeholder Advisory</li>
+              <li>Digital Strategy</li>
+              <li>UX Consulting for SMBs</li>
+              <li>Booking Flow Design</li>
+              <li>Conversion Optimization</li>
+            </ul>
+            <span class="flow-btn">
+              <span class="flow-btn__arrow flow-btn__arrow--in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+              <span class="flow-btn__text">Read full case study</span>
+              <span class="flow-btn__circle"></span>
+              <span class="flow-btn__arrow flow-btn__arrow--out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            </span>
+          </a>
+
+          <a class="card card-link" href="case-study.html?slug=gentrack">
+            <div class="card-media card-media--logo"><img src="img/Gentrack-logo1.png" alt="Gentrack logo"></div>
+            <span class="card-badge card-badge--learning">Case study</span>
+            <div class="card-head">
+              <h3 class="card-title">Gentrack, Business Process Redesign (Knowledge Management)</h3>
+              <span class="card-meta">Business analysis case study</span>
+            </div>
+            <p class="card-hook">
+              Gentrack has over <strong>10,000</strong> knowledge articles.
+              Their engineers still can't find the right one
+              <strong>more than half the time</strong>.
+            </p>
+            <p class="card-desc">
+              A full business analysis case study on Gentrack Group Limited
+              (NZX: GTK), diagnosing why their internal knowledge base was
+              draining time, trust, and delivery speed.
+            </p>
+            <ul class="tags">
+              <li>Business Process Redesign</li>
+              <li>Root Cause Analysis</li>
+              <li>BPMN 2.0</li>
+              <li>SAP Signavio</li>
+              <li>SAP Build App</li>
+              <li>KPI Design</li>
+              <li>Stakeholder Interviews</li>
+              <li>Change Management</li>
+            </ul>
+            <span class="flow-btn">
+              <span class="flow-btn__arrow flow-btn__arrow--in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+              <span class="flow-btn__text">Read full case study</span>
+              <span class="flow-btn__circle"></span>
+              <span class="flow-btn__arrow flow-btn__arrow--out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            </span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <span>&copy; <span id="year"></span> Umesh Nayak</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

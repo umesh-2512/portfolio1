@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- title + description are set per case study by script.js (block 6) -->
+  <title>Case study</title>
+  <meta name="description" content="Consulting case study by Umesh Nayak." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ===== Shared top bar ===== -->
+  <header class="topbar">
+    <div class="meta">
+      <svg class="flag" viewBox="0 0 40 24" width="26" height="16" role="img" aria-label="New Zealand">
+        <rect width="40" height="24" fill="#00247d" />
+        <path d="M0 0 20 12M20 0 0 12" stroke="#fff" stroke-width="3" />
+        <path d="M10 0V12M0 6H20" stroke="#fff" stroke-width="4" />
+        <path d="M10 0V12M0 6H20" stroke="#cc142b" stroke-width="2" />
+        <path d="M0 0 20 12M20 0 0 12" stroke="#cc142b" stroke-width="1" />
+        <circle cx="33" cy="6" r="1.7" fill="#cc142b" />
+        <circle cx="27" cy="12" r="1.7" fill="#cc142b" />
+        <circle cx="35" cy="15" r="1.7" fill="#cc142b" />
+        <circle cx="31" cy="19" r="1.7" fill="#cc142b" />
+      </svg>
+      <span id="clock">--:--</span>
+      <span class="dot">·</span>
+      <span>Auckland</span>
+    </div>
+
+    <a href="index.html" class="name">Umesh Nayak</a>
+
+    <nav class="nav">
+      <a class="metal-btn metal-btn--ghost" href="index.html">Home</a>
+      <a class="metal-btn metal-btn--ghost" href="blogs.html">Blogs</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <!-- script.js block 6 fills this from ?slug= against consulting.js -->
+    <article class="case" id="case-root">
+      <p class="case-back"><a href="projects.html">&larr; Back to Projects</a></p>
+      <p>Loading case study&hellip;</p>
+    </article>
+  </main>
+
+  <footer class="foot">
+    <span>&copy; <span id="year"></span> Umesh Nayak</span>
+  </footer>
+
+  <script src="consulting.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
