@@ -11,6 +11,50 @@
    is safe to include everywhere.
    =================================================================== */
 
+// 0. Circular cursor ---------------------------------------------
+const cursorMedia = window.matchMedia("(pointer: fine)");
+if (cursorMedia.matches) {
+  const cursorDot = document.createElement("span");
+  const cursorRing = document.createElement("span");
+  cursorDot.className = "circular-cursor__dot";
+  cursorRing.className = "circular-cursor__ring";
+  document.body.append(cursorDot, cursorRing);
+  document.body.classList.add("has-circular-cursor");
+
+  let ringX = 0;
+  let ringY = 0;
+  let pointerX = 0;
+  let pointerY = 0;
+
+  const moveCursor = (event) => {
+    pointerX = event.clientX;
+    pointerY = event.clientY;
+    cursorDot.style.left = pointerX + "px";
+    cursorDot.style.top = pointerY + "px";
+    const hoveredElement = document.elementFromPoint(event.clientX, event.clientY);
+    cursorRing.classList.toggle(
+      "is-hovered",
+      Boolean(hoveredElement?.closest("a, button, [role=button]"))
+    );
+    document.body.classList.add("has-circular-cursor");
+  };
+
+  const animateRing = () => {
+    ringX += (pointerX - ringX) * 0.16;
+    ringY += (pointerY - ringY) * 0.16;
+    cursorRing.style.left = ringX + "px";
+    cursorRing.style.top = ringY + "px";
+    requestAnimationFrame(animateRing);
+  };
+
+  document.addEventListener("pointermove", moveCursor);
+  document.addEventListener("pointerdown", () => cursorRing.classList.add("is-pressed"));
+  document.addEventListener("pointerup", () => cursorRing.classList.remove("is-pressed"));
+  document.addEventListener("pointerleave", () => document.body.classList.remove("has-circular-cursor"));
+  document.addEventListener("pointerenter", () => document.body.classList.add("has-circular-cursor"));
+  animateRing();
+}
+
 // 1. Clock --------------------------------------------------------
 function updateClock() {
   const el = document.getElementById("clock");

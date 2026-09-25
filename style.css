@@ -40,6 +40,52 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+@media (pointer: fine) {
+  body.has-circular-cursor,
+  body.has-circular-cursor * {
+    cursor: none !important;
+  }
+
+  .circular-cursor__dot,
+  .circular-cursor__ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 10000;
+    border-radius: 50%;
+    mix-blend-mode: difference;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 200ms ease, transform 200ms ease;
+  }
+
+  .circular-cursor__dot {
+    width: 6px;
+    height: 6px;
+    background: #fff;
+  }
+
+  .circular-cursor__ring {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #fff;
+  }
+
+  body.has-circular-cursor .circular-cursor__dot,
+  body.has-circular-cursor .circular-cursor__ring {
+    opacity: 1;
+  }
+
+  body.has-circular-cursor .circular-cursor__ring.is-hovered {
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+
+  body.has-circular-cursor .circular-cursor__ring.is-pressed {
+    transform: translate(-50%, -50%) scale(0.75);
+  }
+}
+
 img {
   max-width: 100%;
   display: block;
