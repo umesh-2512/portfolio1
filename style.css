@@ -13,6 +13,7 @@
 
 /* ---------- 1. Variables + reset ---------- */
 :root {
+  color-scheme: light;
   --text: #1a1a1a;      /* main text      */
   --muted: #999;        /* dates, labels  */
   --line: #ececec;      /* borders        */
@@ -20,9 +21,38 @@
   --accent-dev: #3b5bdb;        /* Development projects accent */
   --accent-consulting: #0d9488; /* Consulting projects accent  */
   --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --surface-muted: #f4f4f5;
+  --surface-image: #f4f4f4;
+  --border-strong: #d0d0d4;
+  --shadow-subtle: rgba(0, 0, 0, 0.07);
+  --button-fill: #111111;
+  --button-text: #ffffff;
+  --focus: #1a1a1a;
   --max-width: 1080px;
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --text: #f4f4f5;
+  --muted: #a1a1aa;
+  --line: #303238;
+  --link: #8ab4f8;
+  --accent-dev: #8ab4f8;
+  --accent-consulting: #55c7bb;
+  --bg: #111214;
+  --surface: #191a1f;
+  --surface-raised: #202127;
+  --surface-muted: #27282f;
+  --surface-image: #24252b;
+  --border-strong: #4a4c55;
+  --shadow-subtle: rgba(0, 0, 0, 0.28);
+  --button-fill: #f4f4f5;
+  --button-text: #17181b;
+  --focus: #f4f4f5;
 }
 
 * {
@@ -36,8 +66,15 @@ body {
   font-size: 15px;
   line-height: 1.65;
   color: var(--text);
-  background: var(--bg);
+  background-color: var(--bg);
   -webkit-font-smoothing: antialiased;
+}
+
+.topbar,
+.foot,
+.card-badge,
+.post-gallery__item {
+  transition: color 260ms ease, border-color 260ms ease;
 }
 
 @media (pointer: fine) {
@@ -136,6 +173,83 @@ a {
 .nav .metal-btn {
   height: 38px;
   padding: 0 20px;
+}
+
+.theme-switch {
+  position: relative;
+  width: 66px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.theme-switch__track {
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--surface-muted);
+  transition: background-color 0.35s ease, border-color 0.35s ease;
+}
+.theme-switch__knob {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16);
+  transition: transform 0.4s cubic-bezier(0.34, 1.3, 0.64, 1), background-color 0.35s ease,
+    border-color 0.35s ease;
+}
+.theme-switch svg {
+  position: absolute;
+  top: 7px;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke-width: 1.8;
+  transition: opacity 0.2s ease, transform 0.4s ease;
+}
+.theme-switch__sun {
+  left: 7px;
+  stroke: var(--text);
+}
+.theme-switch__moon {
+  right: 7px;
+  stroke: var(--muted);
+  opacity: 0.7;
+}
+.theme-switch:hover .theme-switch__knob {
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.24);
+}
+.theme-switch:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+[data-theme="dark"] .theme-switch__track {
+  border-color: var(--border-strong);
+  background: #0b0b0b;
+}
+[data-theme="dark"] .theme-switch__knob {
+  transform: translateX(36px);
+  border-color: var(--border-strong);
+  background: #2a2a2e;
+}
+[data-theme="dark"] .theme-switch__sun {
+  opacity: 0.45;
+  transform: rotate(45deg);
+}
+[data-theme="dark"] .theme-switch__moon {
+  stroke: var(--text);
+  opacity: 1;
 }
 
 /* ---------- 3. Page layout ---------- */
@@ -387,17 +501,17 @@ a {
 /* Secondary — ghost / outline, flat at rest */
 .metal-btn--ghost {
   background-color: transparent;
-  border-color: rgba(0, 0, 0, 0.18);
+  border-color: var(--border-strong);
 }
 .metal-btn--ghost:hover {
   transform: scale(1.03);
-  background-color: rgba(0, 0, 0, 0.05);
-  border-color: rgba(0, 0, 0, 0.32);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  background-color: var(--surface-muted);
+  border-color: var(--border-strong);
+  box-shadow: 0 4px 14px var(--shadow-subtle);
 }
 .metal-btn--ghost:active {
   transform: scale(0.97);
-  background-color: rgba(0, 0, 0, 0.07);
+  background-color: var(--surface-muted);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -428,23 +542,23 @@ a {
   white-space: nowrap;
   cursor: pointer;
   text-decoration: none;
-  color: #fafafa;
-  background: #171717;
+  color: var(--button-text);
+  background: var(--button-fill);
   border: 0;
   border-radius: 9999px;
   outline-offset: 2px;
   transition: background 0.15s ease, transform 0.15s ease;
-  box-shadow: 0 0 0 0.5px rgb(23, 23, 23),
+  box-shadow: 0 0 0 0.5px var(--button-fill),
     inset 0 0 0 1px rgba(255, 255, 255, 0.14);
 }
 .split-btn > *:hover {
-  background: rgba(23, 23, 23, 0.9);
+  background: var(--button-fill);
 }
 .split-btn > *:active {
   transform: scale(0.97);
 }
 .split-btn > *:focus-visible {
-  outline: 2px solid rgba(23, 23, 23, 0.7);
+  outline: 2px solid var(--focus);
 }
 .split-btn > *:disabled {
   opacity: 0.5;
@@ -606,7 +720,7 @@ a {
   gap: 4px;
   padding: 4px;
   margin-bottom: 26px;
-  background: #f4f4f5;
+  background: var(--surface-muted);
   border-radius: 12px;
 }
 .tab {
@@ -630,7 +744,7 @@ a {
   color: var(--text);
 }
 .tab.is-active {
-  background: var(--bg);
+  background: var(--surface-raised);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
 }
 .tab[data-panel="dev"].is-active {
@@ -699,11 +813,12 @@ a {
   border: 1px solid var(--line);
   border-left: 3px solid var(--panel-accent);
   border-radius: 12px;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  background: var(--surface);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 260ms ease;
 }
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 8px 22px var(--shadow-subtle);
 }
 
 /* Card image box. Empty (with a letter inside) it's an accent-tinted
@@ -716,7 +831,7 @@ a {
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid var(--panel-tint-border);
-  background: linear-gradient(135deg, var(--panel-tint), #fff);
+  background: linear-gradient(135deg, var(--panel-tint), var(--surface-raised));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -749,7 +864,7 @@ a {
   text-transform: uppercase;
   border-radius: 5px;
   color: var(--muted);
-  background: #f4f4f5;
+  background: var(--surface-muted);
   border: 1px solid var(--line);
 }
 .card-badge--learning {
@@ -793,7 +908,6 @@ a {
   flex-shrink: 0;
   color: var(--muted);
   font-size: 13px;
-  color:#b45309
 }
 .card-desc {
   font-size: 14px;
@@ -811,8 +925,6 @@ a {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-    color:#b45309
-
 }
 
 /* Lead line: the one-sentence hook above the description */
@@ -848,7 +960,7 @@ a {
    Same look and animation either way. margin-top: auto pins it to the
    bottom of the flex-column card, so it never crowds the tags above. */
 .flow-btn {
-  --flow-fill: #111111;
+  --flow-fill: var(--button-fill);
   position: relative;
   align-self: flex-start;
   margin-top: auto;
@@ -857,7 +969,7 @@ a {
   gap: 4px;
   overflow: hidden;
   padding: 12px 32px;
-  border: 1.5px solid rgba(51, 51, 51, 0.4);
+  border: 1.5px solid var(--border-strong);
   border-radius: 100px;
   background: transparent;
   font-size: 14px;
@@ -917,7 +1029,7 @@ a {
 .flow-btn:focus-visible {
   border-color: transparent;
   border-radius: 12px;
-  color: #fff;
+  color: var(--button-text);
 }
 .card-link:hover .flow-btn__text,
 .card-link:focus-visible .flow-btn__text,
@@ -930,14 +1042,14 @@ a {
 .flow-btn:hover .flow-btn__arrow--in,
 .flow-btn:focus-visible .flow-btn__arrow--in {
   left: 16px;
-  color: #fff;
+  color: var(--button-text);
 }
 .card-link:hover .flow-btn__arrow--out,
 .card-link:focus-visible .flow-btn__arrow--out,
 .flow-btn:hover .flow-btn__arrow--out,
 .flow-btn:focus-visible .flow-btn__arrow--out {
   right: -25%;
-  color: #fff;
+  color: var(--button-text);
 }
 .card-link:hover .flow-btn__circle,
 .card-link:focus-visible .flow-btn__circle,
@@ -1116,11 +1228,12 @@ a {
   color: inherit;
   text-decoration: none;
   overflow: hidden;
+  background: var(--surface);
   transition: border-color 0.18s ease, box-shadow 0.18s ease;
 }
 .blog-card:hover {
-  border-color: #cfcfcf;
-  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.05);
+  border-color: var(--border-strong);
+  box-shadow: 0 5px 16px var(--shadow-subtle);
 }
 .blog-card:focus-visible {
   outline: 2px solid var(--text);
@@ -1130,7 +1243,7 @@ a {
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  background: #f4f4f4;
+  background: var(--surface-image);
 }
 .blog-card__image img {
   width: 100%;
@@ -1259,7 +1372,7 @@ a {
   border: 1px solid var(--line);
   border-radius: 6px;
   overflow: hidden;
-  background: #f4f4f4;
+  background: var(--surface-image);
   cursor: zoom-in;
 }
 .post-gallery__item:focus-visible {
@@ -1289,6 +1402,36 @@ a {
 }
 .post-related a:hover {
   border-bottom-color: var(--text);
+}
+
+/* Dark surfaces retain the same layout while giving each layer a distinct,
+   quiet contrast. Accent tints are adjusted for readability rather than
+   reusing the pale light-mode fills. */
+[data-theme="dark"] .panel[data-accent="dev"] {
+  --panel-tint: #202b43;
+  --panel-tint-border: #35486d;
+}
+[data-theme="dark"] .panel[data-accent="consulting"],
+[data-theme="dark"] .case {
+  --panel-tint: #193332;
+  --panel-tint-border: #2f5a56;
+}
+[data-theme="dark"] .card-badge--learning {
+  color: #f4bf73;
+  background: #3a2b1a;
+  border-color: #6d4d28;
+}
+[data-theme="dark"] .card-badge,
+[data-theme="dark"] .tabs {
+  background-color: var(--surface-muted);
+}
+[data-theme="dark"] .blog-card__image,
+[data-theme="dark"] .post-gallery__item {
+  background-color: var(--surface-image);
+}
+[data-theme="dark"] .topbar,
+[data-theme="dark"] .foot {
+  border-color: var(--line);
 }
 
 @media (prefers-reduced-motion: reduce) {

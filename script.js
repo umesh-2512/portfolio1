@@ -11,7 +11,30 @@
    is safe to include everywhere.
    =================================================================== */
 
-// 0. Circular cursor ---------------------------------------------
+// 0. Theme switch -------------------------------------------------
+const themeButtons = document.querySelectorAll(".theme-switch");
+const setTheme = (theme) => {
+  document.documentElement.dataset.theme = theme;
+  localStorage.setItem("portfolio-theme", theme);
+  themeButtons.forEach((button) => {
+    const isDark = theme === "dark";
+    button.setAttribute("aria-pressed", String(isDark));
+    button.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+  });
+};
+if (themeButtons.length) {
+  setTheme(
+    document.documentElement.dataset.theme ||
+      (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+  );
+  themeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
+    });
+  });
+}
+
+// 1. Circular cursor ---------------------------------------------
 const cursorMedia = window.matchMedia("(pointer: fine)");
 if (cursorMedia.matches) {
   const cursorDot = document.createElement("span");
@@ -55,7 +78,7 @@ if (cursorMedia.matches) {
   animateRing();
 }
 
-// 1. Clock --------------------------------------------------------
+// 2. Clock --------------------------------------------------------
 function updateClock() {
   const el = document.getElementById("clock");
   if (!el) return;
@@ -68,11 +91,11 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 15000); // refresh every 15s
 
-// 2. Footer year ------------------------------------------------
+// 3. Footer year ------------------------------------------------
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// 3. Gallery lightbox -----------------------------------------
+// 4. Gallery lightbox -----------------------------------------
 const lightbox = document.getElementById("lightbox");
 if (lightbox) {
   const bigImg = lightbox.querySelector("img");
@@ -126,7 +149,7 @@ if (lightbox) {
   });
 }
 
-// 4. Project category tabs (Development / Consulting) --------
+// 5. Project category tabs (Development / Consulting) --------
 const projTabs = document.querySelectorAll(".tab");
 if (projTabs.length) {
   const activate = (tab) => {
@@ -154,7 +177,7 @@ if (projTabs.length) {
   });
 }
 
-// 5. Reveal project cards as they enter the viewport ---------
+// 6. Reveal project cards as they enter the viewport ---------
 const cardGroups = document.querySelectorAll(".cards");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 if (cardGroups.length && !reduceMotion && "IntersectionObserver" in window) {

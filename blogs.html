@@ -6,6 +6,7 @@
   <title>Blogs</title>
   <meta name="description" content="Short, LinkedIn-style posts by Umesh Nayak." />
   <link rel="stylesheet" href="style.css" />
+  <script>document.documentElement.dataset.theme = localStorage.getItem("portfolio-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");</script>
 </head>
 <body>
   <!-- ===== Shared top bar (keep this identical on every page) ===== -->
@@ -30,6 +31,9 @@
     <a href="index.html" class="name">Umesh Nayak</a>
 
     <nav class="nav">
+      <button class="theme-switch" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+        <span class="theme-switch__track"><svg class="theme-switch__sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" /></svg><svg class="theme-switch__moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.3A8.5 8.5 0 1 1 9.7 3.5 8.5 8.5 0 0 0 20.5 14.3Z" /></svg><span class="theme-switch__knob"></span></span>
+      </button>
       <a class="metal-btn metal-btn--ghost" href="index.html">Home</a>
       <a class="metal-btn metal-btn--ghost" href="projects.html">Projects</a>
     </nav>
