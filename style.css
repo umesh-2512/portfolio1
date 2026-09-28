@@ -1255,6 +1255,9 @@ a {
 .blog-card:nth-child(4) .blog-card__image img {
   object-fit: cover;
 }
+.blog-card:first-child .blog-card__image img {
+  object-position: center top;
+}
 .blog-card__body {
   display: flex;
   flex-direction: column;
